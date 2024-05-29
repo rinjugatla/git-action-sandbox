@@ -22,12 +22,12 @@ jobs:
       - name: Git config show
         run: "git config --local -l"
       
-      - name: Git config unset
-        run: |
-          git config --local --unset user.signingkey
-          git config --local --unset gpg.format
-          git config --local --unset gpg.ssh.program
-          git config --local --unset commit.gpgsign
+      # - name: Git config unset
+      #   run: |
+      #     git config --local --unset user.signingkey
+      #     git config --local --unset gpg.format
+      #     git config --local --unset gpg.ssh.program
+      #     git config --local --unset commit.gpgsign
 
       - name: Add text
         run: |
