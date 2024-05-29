@@ -21,6 +21,9 @@ jobs:
 
       - name: Git config show
         run: "git config --local -l"
+
+      - name: Git pull
+        run: "git pull origin main"
       
       # - name: Git config unset
       #   run: |
