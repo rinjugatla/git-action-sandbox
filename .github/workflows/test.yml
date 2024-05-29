@@ -34,7 +34,7 @@ jobs:
 
       - name: Add text
         run: |
-          echo hoge > ./data/data.txt
+          cat ./data/data.txt | sed '$ahoge'
 
       - name: Git
         run: |
