@@ -39,5 +39,5 @@ jobs:
       - name: Git
         run: |
           git add ./data/data.txt
-          git commit -m "Add text"
+          git commit -m "Add text" || echo "No changes to commit"
           git push origin main
