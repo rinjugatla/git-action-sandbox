@@ -1,0 +1,40 @@
+name: Add text
+
+on:
+  push:
+    branches: main
+
+jobs:
+  fetch:
+    name: Add text
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Git config set
+        run: |
+          git config --global core.autocrlf input
+          git config --global user.email "action@github.com"
+          git config --global user.name "actions-user"
+
+      - name: Clone repository
+        uses: actions/checkout@v4
+
+      - name: Git config show
+        run: "git config --local -l"
+      
+      - name: Git config unset
+        run: |
+          git config --local --unset user.signingkey
+          git config --local --unset gpg.format
+          git config --local --unset gpg.ssh.program
+          git config --local --unset commit.gpgsign
+
+      - name: Add text
+        run: |
+          echo hoge > ./data/data.txt
+
+      - name: Git
+        run: |
+          git add ./data/data.txt
+          git commit -m "Add text"
+          git push origin main
